@@ -7,7 +7,7 @@ Fbootstrapp is a toolkit designed to kickstart development of facebook iframe ap
 
 Fbootstrap is based on Twitter's excellent Bootstrap, as the name might indicate.
 
-To get started -- checkout http://ckrack.github.com/fbootstrapp/
+To get starte, checkout http://ckrack.github.com/fbootstrapp/
 
 This plugin is a fork of https://github.com/groovydev/twitter-bootstrap-grails-plugin
 
@@ -34,8 +34,8 @@ You must use the Grails resources framework to make use of this plugin. The reso
 
 Note 
 -----
-A fbootstrapp resource depends on fbootstrapp-css and fbootstrapp-js. 
-In case of lesscss-resources plugin is installed, fbootstrapp resource depends on fbootstrapp-less and fbootstrapp-js.   
+A _fbootstrapp_ resource depends on _fbootstrapp-css_ and fbootstrapp-js. 
+In case of _lesscss-resources_ plugin is installed, _fbootstrapp_ resource depends on _fbootstrapp-less_ and _fbootstrapp-js_.   
  
 Usage
 -----
@@ -59,7 +59,7 @@ Control plugin resources bundling.
 Logging
 -------
 
-grails.plugins.fbootstrapp - log category
+		grails.plugins.fbootstrapp - log category
 		
 Versioning
 ----------
@@ -69,7 +69,7 @@ Plugin version convention is <original-fbootstrapp-version>.<plugin-version>
 Copyright and License
 ---------------------
 
-*fbootstrapp grails plugin*
+**fbootstrapp grails plugin**
 
 	Copyright 2012 Benoit Hediard
 
@@ -86,7 +86,7 @@ Copyright and License
 	 limitations under the License.
 
 
-*twitter-bootstrap grails plugin*
+**twitter-bootstrap grails plugin**
 
 	Copyright 2011 Karol Balejko
 
@@ -103,7 +103,7 @@ Copyright and License
 	limitations under the License.
 	 
 
-*Twitter Bootstrap CSS files*
+**Twitter Bootstrap CSS files**
 
 	Copyright 2011 Twitter, Inc.
 		

@@ -1,22 +1,31 @@
-<plugin name='twitter-bootstrap' version='1.4.0.14' grailsVersion='1.3.7 &gt; *'>
-  <author>Karol Balejko</author>
-  <authorEmail>kb@groovydev.org</authorEmail>
-  <title>Plugin Twitter Bootstrap CSS framework resource files</title>
-  <description>Provides Twitter Bootstrap CSS framework resource files.
-Bootstrap is Twitter's toolkit for kickstarting CSS for websites, apps, and more. It includes base CSS styles for typography, forms, buttons, tables, grids, navigation, alerts, and more.
-To get started -- checkout http://twitter.github.com/bootstrap!
+<plugin name='fbootstrapp' version='0.1.1' grailsVersion='2.0 &gt; *'>
+  <author>Benoit Hediard</author>
+  <authorEmail>ben@benorama.com</authorEmail>
+  <title>Plugin FBootstrapp CSS framework resource files</title>
+  <description>Provides FBootstrapp CSS framework resource files.
+FBootstrapp is a toolkit designed to kickstart development of facebook iframe apps in both relevant sizes. It includes base CSS and HTML for typography, forms, buttons, tables, grids, navigation, and more, styled in the typical facebook look and feel.
+FBootstrapp is based on Twitter's excellent Bootstrap, as the name might indicate.
+To get started -- checkout http://ckrack.github.com/fbootstrapp/!
 </description>
-  <documentation>https://github.com/groovydev/twitter-bootstrap-grails-plugin/blob/master/README.md</documentation>
+  <documentation>https://github.com/benorama/fbootstrapp-grails-plugin/blob/master/README.md</documentation>
+  <type>FbootstrappGrailsPlugin</type>
   <resources>
-    <resource>BootstrapResources</resource>
-    <resource>BuildConfig</resource>
-    <resource>Config</resource>
-    <resource>DataSource</resource>
-    <resource>UrlMappings</resource>
-    <resource>org.groovydev.TwitterBootstrapTagLib</resource>
+    <resource>FBootstrappResources</resource>
+    <resource>grails.plugins.fboostrapp.FbootstrappTagLib</resource>
   </resources>
-  <dependencies>
-    <plugin name='resources' version='1.0 &gt; *' />
-  </dependencies>
+  <repositories>
+    <repository name='grailsCentral' url='http://plugins.grails.org' />
+    <repository name='http://repo.grails.org/grails/plugins' url='http://repo.grails.org/grails/plugins/' />
+    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
+    <repository name='grailsCore' url='http://svn.codehaus.org/grails/trunk/grails-plugins' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+  </repositories>
+  <dependencies />
+  <plugins>
+    <compile>
+      <plugin group='org.grails.plugins' name='resources' version='latest.integration' />
+    </compile>
+  </plugins>
+  <runtimePluginRequirements />
   <behavior />
 </plugin>

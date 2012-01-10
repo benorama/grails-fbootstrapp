@@ -36,18 +36,19 @@ label,
 input,
 select,
 textarea {
-  #font > .sans-serif(normal,13px,normal);
+  #font > .facebook();
 }
 
 // Float labels left
 label {
   padding-top: 6px;
   font-size: @basefont;
+  font-weight: bold;
   line-height: @baseline;
   float: left;
   width: 130px;
   text-align: right;
-  color: @grayDark;
+  color: @gray;
 }
 
 // Shift over the inside div to align all label's relevant content
@@ -73,8 +74,8 @@ select,
   font-size: @basefont;
   line-height: @baseline;
   color: @gray;
-  border: 1px solid #ccc;
-  .border-radius(3px);
+  border: 1px solid @formBorderColor;
+  .border-radius(@formBorderRadius);
 }
 
 // remove padding from select
@@ -170,7 +171,7 @@ select:focus {
 // --------------------------
 
 // Mixin for form field states
-.formFieldState(@textColor: #555, @borderColor: #ccc, @backgroundColor: #f5f5f5) {
+.formFieldState(@textColor: #555, @borderColor: @formBorderColor, @backgroundColor: @grayWhite) {
   // Set the text color
   > label,
   .help-block,
@@ -184,7 +185,7 @@ select:focus {
     border-color: @borderColor;
     &:focus {
       border-color: darken(@borderColor, 10%);
-      .box-shadow(0 0 6px lighten(@borderColor, 20%);
+      .box-shadow(0 0 6px lighten(@borderColor, 20%));
     }
   }
   // Give a small background color for input-prepend/-append
@@ -192,64 +193,22 @@ select:focus {
   .input-append .add-on {
     color: @textColor;
     background-color: @backgroundColor;
-    border-color: @textColor;
+    border-color: darken(@borderColor, 10%);
   }
 }
 // Error
 form .clearfix.error {
-  .formFieldState(#b94a48, #ee5f5b, lighten(#ee5f5b, 30%));
+  .formFieldState(@red, @red, @redLight);
 }
 // Warning
 form .clearfix.warning {
-  .formFieldState(#c09853, #ccae64, lighten(#CCAE64, 5%));
+  .formFieldState(@yellow, @yellow, @yellowLight);
 }
 // Success
 form .clearfix.success {
-  .formFieldState(#468847, #57a957, lighten(#57a957, 30%));
+  .formFieldState(@green, @green, @green);
 }
 
-
-// Form element sizes
-// TODO v2: remove duplication here and just stick to .input-[size] in light of adding .spanN sizes
-.input-mini,
-input.mini,
-textarea.mini,
-select.mini {
-  width: 60px;
-}
-.input-small,
-input.small,
-textarea.small,
-select.small {
-  width: 90px;
-}
-.input-medium,
-input.medium,
-textarea.medium,
-select.medium {
-  width: 150px;
-}
-.input-large,
-input.large,
-textarea.large,
-select.large {
-  width: 210px;
-}
-.input-xlarge,
-input.xlarge,
-textarea.xlarge,
-select.xlarge {
-  width: 270px;
-}
-.input-xxlarge,
-input.xxlarge,
-textarea.xxlarge,
-select.xxlarge {
-  width: 530px;
-}
-textarea.xxlarge {
-  overflow-y: auto;
-}
 
 // Grid style input sizes
 // This is a duplication of the main grid .columns() mixin, but subtracts 10px to account for input padding and border
@@ -280,6 +239,48 @@ textarea {
   &.span16    { .formColumns(16); }
 }
 
+// Form element sizes
+// TODO v2: remove duplication here and just stick to .input-[size] in light of adding .spanN sizes
+.input-mini,
+input.mini,
+textarea.mini,
+select.mini {
+ .formColumns(1);
+}
+.input-small,
+input.small,
+textarea.small,
+select.small {
+  .formColumns(2);
+}
+.input-medium,
+input.medium,
+textarea.medium,
+select.medium {
+  .formColumns(3);
+}
+.input-large,
+input.large,
+textarea.large,
+select.large {
+  .formColumns(4);
+}
+.input-xlarge,
+input.xlarge,
+textarea.xlarge,
+select.xlarge {
+  .formColumns(6);
+}
+.input-xxlarge,
+input.xxlarge,
+textarea.xxlarge,
+select.xxlarge {
+  .formColumns(8);
+}
+textarea.xxlarge {
+  overflow-y: auto;
+}
+
 // Disabled and read-only inputs
 input[disabled],
 select[disabled],
@@ -287,19 +288,19 @@ textarea[disabled],
 input[readonly],
 select[readonly],
 textarea[readonly] {
-  background-color: #f5f5f5;
+  background-color: @grayWhite;
   border-color: #ddd;
   cursor: not-allowed;
 }
 
 // Actions (the buttons)
 .actions {
-  background: #f5f5f5;
+  background: @grayWhite;
   margin-top: @baseline;
   margin-bottom: @baseline;
   padding: (@baseline - 1) 20px @baseline 150px;
   border-top: 1px solid #ddd;
-  .border-radius(0 0 3px 3px);
+  .border-radius(0 0 @formBorderRadius @formBorderRadius);
   .secondary-action {
     float: right;
     a {
@@ -343,18 +344,18 @@ textarea[readonly] {
 .input-prepend,
 .input-append {
   input {
-    .border-radius(0 3px 3px 0);
+    .border-radius(0 @formBorderRadius @formBorderRadius 0);
   }
   .add-on {
     position: relative;
-    background: #f5f5f5;
-    border: 1px solid #ccc;
+    background: @grayWhite;
+    border: 1px solid @formBorderColor;
     z-index: 2;
     float: left;
     display: block;
     width: auto;
     min-width: 16px;
-    height: 18px;
+    height: @baseline;
     padding: 4px 4px 4px 5px;
     margin-right: -1px;
     font-weight: normal;
@@ -362,7 +363,7 @@ textarea[readonly] {
     color: @grayLight;
     text-align: center;
     text-shadow: 0 1px 0 @white;
-    .border-radius(3px 0 0 3px);
+    .border-radius(@formBorderRadius 0 0 @formBorderRadius);
   }
   .active {
     background: lighten(@green, 30);
@@ -377,10 +378,10 @@ textarea[readonly] {
 .input-append {
   input {
     float: left;
-    .border-radius(3px 0 0 3px);
+    .border-radius(@formBorderRadius 0 0 @formBorderRadius);
   }
   .add-on {
-    .border-radius(0 3px 3px 0);
+    .border-radius(0 @formBorderRadius @formBorderRadius 0);
     margin-right: 0;
     margin-left: -1px;
   }
@@ -401,11 +402,12 @@ textarea[readonly] {
     width: auto;
     padding: 0;
     margin-left: 20px;
-    line-height: @baseline;
+    line-height: @baseline+4;
     text-align: left;
     white-space: normal;
+    font-weight: normal;
     strong {
-      color: @gray;
+      color: @grayDark;
     }
     small {
       font-size: @basefont - 2;

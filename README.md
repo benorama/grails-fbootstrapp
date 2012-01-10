@@ -1,11 +1,16 @@
-Grails plugin: Twitter Bootstrap CSS framework resource files
+Grails plugin: FBootstrapp CSS framework resource files
 ===============================================
 
-Provides Twitter Bootstrap CSS framework resource files.
+Provides FBootstrapp CSS framework resource files.
 
-Bootstrap is Twitter's toolkit for kickstarting CSS for websites, apps, and more. It includes base CSS styles for typography, forms, buttons, tables, grids, navigation, alerts, and more.
+Fbootstrapp is a toolkit designed to kickstart development of facebook iframe apps in both relevant sizes. It includes base CSS and HTML for typography, forms, buttons, tables, grids, navigation, and more, styled in the typical facebook look and feel.
 
-To get started -- checkout http://twitter.github.com/bootstrap!
+Fbootstrap is based on Twitter's excellent Bootstrap, as the name might indicate.
+
+To get started -- checkout http://ckrack.github.com/fbootstrapp/
+
+This plugin is fork of https://github.com/groovydev/twitter-bootstrap-grails-plugin
+
 
 Including the resources
 ------------------------
@@ -42,11 +47,11 @@ Configuration
 
 Fix grails taglib g:paginate to work with bootstrap css. 
  
-    grails.plugins.twitterbootstrap.fixtaglib = true
+    grails.plugins.fbootstrapp.fixtaglib = true
     
 Control plugin resources bundling.
 
-    grails.plugins.twitterbootstrap.defaultBundle
+    grails.plugins.fbootstrapp.defaultBundle
         'bundle_name': bundle resources using bundle name
         false: disable bundling
         default: 'bundle_bootstrap'
@@ -54,19 +59,19 @@ Control plugin resources bundling.
 Logging
 -------
 
-    grails.plugins.twitterbootstrap - log category
+    grails.plugins.fbootstrapp - log category
     
 Versioning
 ----------
 
-    Plugin version convention is <original-twitter-boostrap-version>.<plugin-version>
+    Plugin version convention is <original-fbootstrapp-version>.<plugin-version>
 
 Copyright and License
 ---------------------
 
-twitter-bootstrap plugin:
+fbootstrapp plugin:
 
-   Copyright 2011 Karol Balejko
+   Copyright 2011 Benoit Hediard
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

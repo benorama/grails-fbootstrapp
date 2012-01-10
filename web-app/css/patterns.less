@@ -8,7 +8,7 @@
 
 // Topbar for Branding and Nav
 .topbar {
-  height: 40px;
+  height: 38px;
   position: fixed;
   top: 0;
   left: 0;
@@ -18,7 +18,7 @@
 
   // Links get text shadow
   a {
-    color: @grayLight;
+    color: @white;
     text-shadow: 0 -1px 0 rgba(0,0,0,.25);
   }
 
@@ -27,8 +27,7 @@
   h3 a:hover,
   .brand:hover,
   ul .active > a {
-    background-color: #333;
-    background-color: rgba(255,255,255,.05);
+    background-color: @blue;
     color: @white;
     text-decoration: none;
   }
@@ -42,8 +41,8 @@
   .brand {
     float: left;
     display: block;
-    padding: 8px 20px 12px;
-    margin-left: -20px; // negative indent to left-align the text down the page
+    padding: 4px 20px 12px;
+    margin: 4px 0 0 -20px; // negative indent to left-align the text down the page
     color: @white;
     font-size: 20px;
     font-weight: 200;
@@ -53,7 +52,7 @@
   // Plain text in topbar
   p {
     margin: 0;
-    line-height: 40px;
+    line-height: 38px;
     a:hover {
       background-color: transparent;
       color: @white;
@@ -115,8 +114,7 @@
 // For backwards compatibility, include .topbar .fill
 .topbar-inner,
 .topbar .fill {
-  background-color: #222;
-  #gradient > .vertical(#333, #222);
+  background-color: @blueDark;
   @shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
   .box-shadow(@shadow);
 }
@@ -132,7 +130,7 @@
 .nav {
   display: block;
   float: left;
-  margin: 0 10px 0 0;
+  margin: 4px 10px 0 0;
   position: relative;
   left: 0;
   > li {
@@ -143,16 +141,17 @@
     display: block;
     float: none;
     padding: 10px 10px 11px;
+    padding: 6px 10px 11px;
     line-height: 19px;
     text-decoration: none;
     &:hover {
       color: @white;
       text-decoration: none;
+      background-color: @blue;
     }
   }
   .active > a {
-    background-color: #222;
-    background-color: rgba(0,0,0,.5);
+    background-color: @blue;
   }
 
   // Secondary (floated right) nav in topbar
@@ -173,27 +172,26 @@
   li.open .menu,
   .dropdown-toggle:hover,
   .dropdown.open .dropdown-toggle {
-    background: #444;
+    background: @blueDark;
     background: rgba(255,255,255,.05);
   }
   // .menu-dropdown for backwards compatibility
   .menu-dropdown,
   .dropdown-menu {
-    background-color: #333;
+    background-color: @blueDark;
     // a.menu for backwards compatibility
     a.menu,
     .dropdown-toggle {
       color: @white;
       &.open {
-        background: #444;
+        background: @blue;
         background: rgba(255,255,255,.05);
       }
     }
     li a {
-      color: #999;
-      text-shadow: 0 1px 0 rgba(0,0,0,.5);
+      color: @white;
+      //text-shadow: 0 1px 0 rgba(0,0,0,.5);
       &:hover {
-        #gradient > .vertical(#292929,#191919);
         color: @white;
       }
     }
@@ -201,8 +199,8 @@
       color: @white;
     }
     .divider {
-      background-color: #222;
-      border-color: #444;
+      background-color: @blueDark;
+      border-color: @blue;
     }
   }
 }
@@ -245,7 +243,7 @@ a.menu:after,
   float: left;
   display: none; // None by default, but block on "open" of the menu
   position: absolute;
-  top: 40px;
+  top: 36px;
   z-index: 900;
   min-width: 160px;
   max-width: 220px;
@@ -254,10 +252,10 @@ a.menu:after,
   margin-right: 0;
   padding: 6px 0;
   zoom: 1; // do we need this?
-  border-color: #999;
+  border-color: @blue;
   border-color: rgba(0,0,0,.2);
   border-style: solid;
-  border-width: 0 1px 1px;
+  border-width: 1px 1px 1px;
   .border-radius(0 0 6px 6px);
   .box-shadow(0 2px 4px rgba(0,0,0,.2));
   .background-clip(padding-box);
@@ -287,13 +285,12 @@ a.menu:after,
     clear: both;
     font-weight: normal;
     line-height: 18px;
-    color: @gray;
-    text-shadow: 0 1px 0 @white;
+    color: @blue;
     // Hover state
     &:hover,
     &.hover {
-      #gradient > .vertical(#eeeeee, #dddddd);
-      color: @grayDark;
+      background-color: @blue;
+      color: @white;
       text-decoration: none;
       @shadow: inset 0 1px 0 rgba(0,0,0,.025), inset 0 -1px rgba(0,0,0,.025);
       .box-shadow(@shadow);
@@ -309,8 +306,7 @@ a.menu:after,
   .menu,
   .dropdown-toggle {
     color: @white;
-    background: #ccc;
-    background: rgba(0,0,0,.3);
+    background: @blue;
   }
   // .menu-dropdown for backwards compatibility
   .menu-dropdown,
@@ -349,9 +345,9 @@ a.menu:after,
     > a {
       padding: 0 15px;
       margin-right: 2px;
-      line-height: (@baseline * 2) - 2;
+      line-height: (@baseline * 1.5);
       border: 1px solid transparent;
-      .border-radius(4px 4px 0 0);
+      .border-radius(@tabsBorderRadius @tabsBorderRadius 0 0);
       &:hover {
         text-decoration: none;
         background-color: #eee;
@@ -375,37 +371,37 @@ a.menu:after,
   // first one for backwards compatibility
   .menu-dropdown,
   .dropdown-menu {
-    top: 35px;
+    top: 25px;
     border-width: 1px;
-    .border-radius(0 6px 6px 6px);
+    .border-radius(0 4px 4px 4px);
   }
   // first one for backwards compatibility
   a.menu:after,
   .dropdown-toggle:after {
-    border-top-color: #999;
-    margin-top: 15px;
+    border-top-color: @blueDark;
+    margin-top: 10px;
     margin-left: 5px;
   }
   // first one for backwards compatibility
   li.open.menu .menu,
   .open.dropdown .dropdown-toggle {
-    border-color: #999;
+    border-color: @blueDark;
   }
   // first one for backwards compatibility
   li.open a.menu:after,
   .dropdown.open .dropdown-toggle:after {
-    border-top-color: #555;
+    border-top-color: @blue;
   }
 }
 
 // Pills
 .pills {
   a {
-    margin: 5px 3px 5px 0;
-    padding: 0 15px;
-    line-height: 30px;
+    margin: 3px 3px 3px 0;
+    padding: 0 10px;
+    line-height: 20px;
     text-shadow: 0 1px 1px @white;
-    .border-radius(15px);
+    .border-radius(@pillsBorderRadius);
     &:hover {
       color: @white;
       text-decoration: none;
@@ -430,7 +426,9 @@ a.menu:after,
 .pill-content {
 }
 .tab-content > .tab-pane,
-.pill-content > .pill-pane {
+.pill-content > .pill-pane,
+.tab-content > div,
+.pill-content > div {
   display: none;
 }
 .tab-content > .active,
@@ -445,7 +443,7 @@ a.menu:after,
 .breadcrumb {
   padding: 7px 14px;
   margin: 0 0 @baseline;
-  #gradient > .vertical(#ffffff, #f5f5f5);
+  #gradient > .vertical(#ffffff, @grayWhite);
   border: 1px solid #ddd;
   .border-radius(3px);
   .box-shadow(inset 0 1px 0 @white);
@@ -454,8 +452,7 @@ a.menu:after,
     text-shadow: 0 1px 0 @white;
   }
   .divider {
-    padding: 0 5px;
-    color: @grayLight;
+    padding: 0 2px;
   }
   .active a {
     color: @grayDark;
@@ -467,7 +464,7 @@ a.menu:after,
 // ------------
 
 .hero-unit {
-  background-color: #f5f5f5;
+  background-color: @grayWhite;
   margin-bottom: 30px;
   padding: 60px;
   .border-radius(6px);
@@ -510,33 +507,34 @@ footer {
 .btn,
 .alert-message {
   // Set text color
+  &.success,
+  &.success:hover,
   &.danger,
   &.danger:hover,
   &.error,
   &.error:hover,
-  &.success,
-  &.success:hover,
   &.info,
   &.info:hover {
-    color: @white
+    color: @grayDark;
   }
   // Sets the close button to the middle of message
   .close{
     font-family: Arial, sans-serif;
-    line-height: 18px;
+    line-height: @baseline;
   }
   // Danger and error appear as red
   &.danger,
   &.error {
-    .gradientBar(#ee5f5b, #c43c35);
+    .gradientBar(@redLight, @redLight);
   }
-  // Success appears as green
+  // Success (now blue, only for alert-message)
   &.success {
-    .gradientBar(#62c462, #57a957);
+    .gradientBar(@blueLighter, @blueLighter);
+    border-color: @blueLight;
   }
-  // Info appears as a neutral blue
+  // Info (now yellow)
   &.info {
-    .gradientBar(#5bc0de, #339bb9);
+    .gradientBar(@yellowLight, @yellowLight);
   }
 }
 
@@ -546,14 +544,14 @@ footer {
   cursor: pointer;
   display: inline-block;
   #gradient > .vertical-three-colors(#ffffff, #ffffff, 25%, darken(#ffffff, 10%)); // Don't use .gradientbar() here since it does a three-color gradient
-  padding: 5px 14px 6px;
-  text-shadow: 0 1px 1px rgba(255,255,255,.75);
+  padding: 5px 12px 6px;
   color: #333;
   font-size: @basefont;
-  line-height: normal;
-  border: 1px solid #ccc;
-  border-bottom-color: #bbb;
-  .border-radius(4px);
+  font-weight: bold;
+  line-height: @baseline;
+  border: 1px solid @gray;
+  border-bottom-color: @grayLight;
+  .border-radius(@btnBorderRadius);
   @shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
   .box-shadow(@shadow);
 
@@ -573,31 +571,48 @@ footer {
     color: @white;
     .gradientBar(@blue, @blueDark)
   }
+  
+  // Success (green, only for btn)
+  &.success {
+    .gradientBar(@greenLight, @greenLight);
+    border-color: @green @green @greenDark;
+  }
+  // danger & error red (only btn)
+  &.danger,
+  &.error {
+    .gradientBar(@red, @red);
+    border-color: darken(@red, 5%) darken(@red, 5%) darken(@red, 20%);
+  }
+  &.success,
+  &.danger,
+  &.error {
+    color: @white;
+    &:hover {
+        color: @white;
+    }
+  }
 
    // Transitions
   .transition(.1s linear all);
 
   // Active and Disabled states
   &.active,
-  :active {
+  &:active {
     @shadow: inset 0 2px 4px rgba(0,0,0,.25), 0 1px 2px rgba(0,0,0,.05);
     .box-shadow(@shadow);
   }
   &.disabled {
     cursor: default;
-    background-image: none;
     .reset-filter();
     .opacity(65);
-    .box-shadow(none);
+    //.box-shadow(none);
   }
   &[disabled] {
     // disabled pseudo can't be included with .disabled
     // def because IE8 and below will drop it ;_;
     cursor: default;
-    background-image: none;
     .reset-filter();
     .opacity(65);
-    .box-shadow(none);
   }
 
   // Button Sizes
@@ -605,10 +620,10 @@ footer {
     font-size: @basefont + 2px;
     line-height: normal;
     padding: 9px 14px 9px;
-    .border-radius(6px);
+    .border-radius(@btnBorderRadius);
   }
   &.small {
-    padding: 7px 9px 7px;
+    padding: 4px 7px 5px 7px;
     font-size: @basefont - 2px;
   }
 }
@@ -655,11 +670,11 @@ input[type=submit].btn {
   padding: 7px 15px;
   margin-bottom: @baseline;
   color: @grayDark;
-  .gradientBar(#fceec1, #eedc94); // warning by default
-  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  .gradientBar(#f7f7f7, #f7f7f7); // warning by default
+  text-shadow: none;
   border-width: 1px;
   border-style: solid;
-  .border-radius(4px);
+  .border-radius(@alertBorderRadius);
   .box-shadow(inset 0 1px 0 rgba(255,255,255,.25));
 
   // Adjust close icon
@@ -672,12 +687,15 @@ input[type=submit].btn {
   a {
     font-weight: bold;
     color: @grayDark;
+    text-shadow: none;
   }
-  &.danger p a,
-  &.error p a,
-  &.success p a,
-  &.info p a {
-    color: @white;
+  strong {
+    text-shadow: none;
+  }
+  &.error,
+  &.success,
+  &.info {
+      text-shadow: none;
   }
 
   // Remove extra margin from content
@@ -699,10 +717,10 @@ input[type=submit].btn {
 
   &.block-message {
     background-image: none;
-    background-color: lighten(#fceec1, 5%);
     .reset-filter();
     padding: 14px;
-    border-color: #fceec1;
+    background-color: #f7f7f7;
+    border-color: #cccccc;
     .box-shadow(none);
     ul, p {
       margin-right: 30px;
@@ -720,19 +738,18 @@ input[type=submit].btn {
     &.success,
     &.info {
       color: @grayDark;
-      text-shadow: 0 1px 0 rgba(255,255,255,.5);
     }
     &.error {
-      background-color: lighten(#f56a66, 25%);
-      border-color: lighten(#f56a66, 20%);
+      background-color: @redLight;
+      border-color: @red;
     }
     &.success {
-      background-color: lighten(#62c462, 30%);
-      border-color: lighten(#62c462, 25%);
+      background-color: @blueLighter;
+      border-color: @blueLight;
     }
     &.info {
-      background-color: lighten(#6bd0ee, 25%);
-      border-color: lighten(#6bd0ee, 20%);
+      background-color: @yellowLight;
+      border-color: @yellow;
     }
     // Change link color back
     &.danger p a,
@@ -775,7 +792,7 @@ input[type=submit].btn {
   }
   a:hover,
   .active a {
-    background-color: lighten(@blue, 45%);
+    background-color: @blueLighter;
   }
   .disabled a,
   .disabled a:hover {
@@ -792,7 +809,7 @@ input[type=submit].btn {
 // -----
 
 .well {
-  background-color: #f5f5f5;
+  background-color: @grayWhite;
   margin-bottom: 20px;
   padding: 19px;
   min-height: 20px;
@@ -838,8 +855,8 @@ input[type=submit].btn {
   border: 1px solid #999;
   border: 1px solid rgba(0,0,0,.3);
   *border: 1px solid #999; /* IE6-7 */
-  .border-radius(6px);
-  .box-shadow(0 3px 7px rgba(0,0,0,0.3));
+  .border-radius(8px);
+  .box-shadow(0 0 0px 8px rgba(82, 82, 82, 0.7));
   .background-clip(padding-box);
   .close { margin-top: 7px; }
   &.fade {
@@ -859,7 +876,7 @@ input[type=submit].btn {
   margin-bottom: 0;
 }
 .modal-footer {
-  background-color: #f5f5f5;
+  background-color: @grayWhite;
   padding: 14px 15px 15px;
   border-top: 1px solid #ddd;
   .border-radius(0 0 6px 6px);
@@ -883,37 +900,37 @@ input[type=submit].btn {
 // --------------
 
 #popoverArrow {
-  .above(@arrowWidth: 5px) {
-    bottom: 0;
+  .above(@arrowWidth: 5px, @arrowColor: @black, @offset: 0) {
+    bottom: @offset;
     left: 50%;
     margin-left: -@arrowWidth;
     border-left: @arrowWidth solid transparent;
     border-right: @arrowWidth solid transparent;
-    border-top: @arrowWidth solid @black;
+    border-top: @arrowWidth solid @arrowColor;
   }
-  .left(@arrowWidth: 5px) {
+  .left(@arrowWidth: 5px, @arrowColor: @black, @offset: 0) {
     top: 50%;
-    right: 0;
+    right: @offset;
     margin-top: -@arrowWidth;
     border-top: @arrowWidth solid transparent;
     border-bottom: @arrowWidth solid transparent;
-    border-left: @arrowWidth solid @black;
+    border-left: @arrowWidth solid @arrowColor;
   }
-  .below(@arrowWidth: 5px) {
-    top: 0;
+  .below(@arrowWidth: 5px, @arrowColor: @black, @offset: 0) {
+    top: @offset;
     left: 50%;
     margin-left: -@arrowWidth;
     border-left: @arrowWidth solid transparent;
     border-right: @arrowWidth solid transparent;
-    border-bottom: @arrowWidth solid @black;
+    border-bottom: @arrowWidth solid @arrowColor;
   }
-  .right(@arrowWidth: 5px) {
+  .right(@arrowWidth: 5px, @arrowColor: @black, @offset: 0) {
     top: 50%;
-    left: 0;
+    left: @offset;
     margin-top: -@arrowWidth;
     border-top: @arrowWidth solid transparent;
     border-bottom: @arrowWidth solid transparent;
-    border-right: @arrowWidth solid @black;
+    border-right: @arrowWidth solid @arrowColor;
   }
 }
 
@@ -931,15 +948,15 @@ input[type=submit].btn {
   &.fade.in {
     .opacity(80);
   }
-  &.above .twipsy-arrow   { #popoverArrow > .above(); }
-  &.left .twipsy-arrow    { #popoverArrow > .left(); }
-  &.below .twipsy-arrow   { #popoverArrow > .below(); }
-  &.right .twipsy-arrow   { #popoverArrow > .right(); }
+  &.above .twipsy-arrow   { #popoverArrow > .above(5px, @blueDark); }
+  &.left .twipsy-arrow    { #popoverArrow > .left(5px, @blueDark); }
+  &.below .twipsy-arrow   { #popoverArrow > .below(5px, @blueDark); }
+  &.right .twipsy-arrow   { #popoverArrow > .right(5px, @blueDark); }
 }
 .twipsy-inner {
   padding: 3px 8px;
-  background-color: @black;
-  color: white;
+  background-color: @blueDark;
+  color: @white;
   text-align: center;
   max-width: 200px;
   text-decoration: none;
@@ -954,6 +971,44 @@ input[type=submit].btn {
 
 // POPOVERS
 // --------
+#popoverdouble {
+  .above(@arrowWidth: 5px, @arrowColor: @black) {
+    bottom: 0;
+    left: 50%;
+    margin-left: -@arrowWidth;
+    border-left: @arrowWidth solid transparent;
+    border-right: @arrowWidth solid transparent;
+    border-top: @arrowWidth solid @arrowColor;
+    content: ' ';
+  }
+  .left(@arrowWidth: 5px, @arrowColor: @black, @offset: 0px) {
+    top: 50%;
+    right: @offset;
+    margin-top: -@arrowWidth;
+    border-top: @arrowWidth solid transparent;
+    border-bottom: @arrowWidth solid transparent;
+    border-left: @arrowWidth solid @arrowColor;
+    content: ' ';
+  }
+  .below(@arrowWidth: 5px, @arrowColor: @black) {
+    top: 0;
+    left: 50%;
+    margin-left: -@arrowWidth;
+    border-left: @arrowWidth solid transparent;
+    border-right: @arrowWidth solid transparent;
+    border-bottom: @arrowWidth solid @arrowColor;
+    content: ' ';
+  }
+  .right(@arrowWidth: 5px, @arrowColor: @black) {
+    top: 50%;
+    left: 0;
+    margin-top: -@arrowWidth;
+    border-top: @arrowWidth solid transparent;
+    border-bottom: @arrowWidth solid transparent;
+    border-right: @arrowWidth solid @arrowColor;
+    content: ' ';
+  }
+}
 
 .popover {
   position: absolute;
@@ -962,36 +1017,47 @@ input[type=submit].btn {
   z-index: 1000;
   padding: 5px;
   display: none;
-  &.above .arrow { #popoverArrow > .above(); }
-  &.right .arrow { #popoverArrow > .right(); }
-  &.below .arrow { #popoverArrow > .below(); }
-  &.left .arrow  { #popoverArrow > .left(); }
-  .arrow {
+  
+  &.above .arrow { #popoverArrow > .above(10px, rgba(0,0,0,0.3), -4px); }
+  &.right .arrow { #popoverArrow > .right(10px, rgba(0,0,0,0.3), -4px); }
+  &.below .arrow { #popoverArrow > .below(10px, rgba(0,0,0,0.3), -4px); }
+  &.left  .arrow { #popoverArrow >  .left(10px, rgba(0,0,0,0.3), -4px); }
+  
+  &.above:after { #popoverdouble > .above(11px, @white, -2px); }
+  &.right:after { #popoverdouble > .right(11px, @white, -2px); }
+  &.below:after { #popoverdouble > .below(11px, @white, -2px); }
+  &.left:after  { #popoverdouble >  .left(11px, @white, -2px); }
+  
+  .arrow,
+  &.above:after,
+  &.right:after,
+  &.below:after,
+  &.left:after {
     position: absolute;
     width: 0;
     height: 0;
   }
   .inner {
-    background: @black;
-    background: rgba(0,0,0,.8);
     padding: 3px;
     overflow: hidden;
     width: 280px;
-    .border-radius(6px);
+    .border-radius(0);
     .box-shadow(0 3px 7px rgba(0,0,0,0.3));
+    border: 1px solid #8C8C8C;
+    border: 1px solid rgba(0, 0, 0, .45);
+    border-bottom: 1px solid #666;
+    -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
   }
   .title {
-    background-color: #f5f5f5;
-    padding: 9px 15px;
+    padding: 5px 10px;
     line-height: 1;
-    .border-radius(3px 3px 0 0);
     border-bottom:1px solid #eee;
   }
   .content {
     background-color: @white;
-    padding: 14px;
-    .border-radius(0 0 3px 3px);
-    .background-clip(padding-box);
+    padding: 10px;
     p, ul, ol {
       margin-bottom: 0;
     }
@@ -1023,10 +1089,12 @@ input[type=submit].btn {
   white-space: nowrap;
   background-color: @grayLight;
   .border-radius(3px);
-  &.important { background-color: #c43c35; }
-  &.warning   { background-color: @orange; }
+  text-shadow: none;
+  &.important { background-color: @red; }
+  &.warning   { background-color: @yellow; }
   &.success   { background-color: @green; }
   &.notice    { background-color: lighten(@blue, 25%); }
+  &.num       { color: @blueDark; background-color: lighten(@blue, 25%); float: right; }
 }
 
 

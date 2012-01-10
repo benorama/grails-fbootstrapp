@@ -68,6 +68,12 @@
     font-weight: @weight;
     line-height: @lineHeight;
   }
+  .facebook(@weight: normal, @size: 11px, @lineHeight: 14px) {
+    font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+    font-size: @size;
+    font-weight: @weight;
+    line-height: @lineHeight;
+  }
 }
 
 // Grid System
@@ -155,7 +161,6 @@
 // Gradient Bar Colors for buttons and allerts
 .gradientBar(@primaryColor, @secondaryColor) {
   #gradient > .vertical(@primaryColor, @secondaryColor);
-  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
   border-color: @secondaryColor @secondaryColor darken(@secondaryColor, 15%);
   border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fadein(rgba(0,0,0,.1), 15%);
 }

@@ -12,8 +12,8 @@ class FbootstrappGrailsPlugin {
 
 	def author = "Benoit Hediard"
 	def authorEmail = "ben@benorama.com"
-	def title = "Plugin FBootstrapp CSS framework resource files"
-	def description = '''Provides FBootstrapp CSS framework resource files.
+	def title = "FBootstrapp CSS Framework Grails Plugin"
+	def description = '''Provides FBootstrapp CSS Framework resource files.
 FBootstrapp is a toolkit designed to kickstart development of facebook iframe apps in both relevant sizes. It includes base CSS and HTML for typography, forms, buttons, tables, grids, navigation, and more, styled in the typical facebook look and feel.
 FBootstrapp is based on Twitter's excellent Bootstrap, as the name might indicate.
 To get started -- checkout http://ckrack.github.com/fbootstrapp/!

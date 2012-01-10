@@ -17,7 +17,6 @@ grails.project.dependency.resolution = {
 	}
 	plugins {
 		compile ":resources:latest.integration"
-		//compile ":twitterbootstrap:latest.integration"
 		build(":release:latest.integration") {
 			export = false
 		}
